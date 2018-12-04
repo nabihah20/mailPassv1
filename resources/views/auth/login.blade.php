@@ -63,7 +63,7 @@
                                     </a>
                                 @endif
 
-                                <a href="{{ url('auth/google') }}" class="btn btn-primary">Register with Google</a>
+                                <a href="{{ url('auth/google') }}" class="btn btn-primary">Login Google</a>
                             </div>
                         </div>
                     </form>

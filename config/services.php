@@ -43,7 +43,7 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),         // Your Google+ Client ID
         'client_secret' => env('GOOGLE_CLIENT_SECRET'), // Your Google+ Client Secret
-        'redirect' => 'GOOGLE_URL',
+        'redirect' => 'http://mailpass.com/auth/google/callback',
     ],
 
 ];

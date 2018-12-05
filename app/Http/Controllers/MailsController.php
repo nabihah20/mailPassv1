@@ -15,7 +15,7 @@ class MailsController extends Controller
     public function index()
     {
         //$mails = Mail::all();
-        $mails = Mail::orderBy('created_at','desc')->paginate(10);
+        //$mails = Mail::orderBy('created_at','desc')->paginate(10);
         return view('mails.index')->with('mails',$mails);
     }
 
@@ -37,7 +37,20 @@ class MailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'senderEmail'=>'required',
+            'subject'=>'required',
+            'message'=>'required'
+        ]);
+        
+        //create post
+        $post = new Post;
+        $post->senderEmail = $request ->input('senderEmail');
+        $post->subject = $request ->input('subject');
+        $post->message = $request->input('message');
+        $post->save();
+
+        return redirect('/mails')->with('success', 'Mails Sent');
     }
 
     /**

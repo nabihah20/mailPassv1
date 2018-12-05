@@ -8,12 +8,20 @@
     <h1>Create New Email</h1>
     {!! Form::open(['action' => 'MailsController@store','method' =>'POST']) !!}
         <div class="form-group">
-            {{Form::label('title','Title')}}
-            {{Form::text('title','',['class'=>'form-control','placeholder' => 'Title'])}}
+            {{Form::email($name, $value = null, $attributes = [])}}
+            {{Form::text('senderEmail','',['class'=>'form-control','placeholder' => 'Sender Email'])}}
         </div>
         <div class="form-group">
-            {{Form::label('body','Body')}}
-            {{Form::textarea('body','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Text'])}}
+            {{Form::label('senderEmail','Sender Email')}}
+            {{Form::text('senderEmail','',['class'=>'form-control','placeholder' => 'Sender Email'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('subject','Subject')}}
+            {{Form::text('subject','',['class'=>'form-control','placeholder' => 'Subject'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('message','Message')}}
+            {{Form::textarea('message','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
         </div>
         {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

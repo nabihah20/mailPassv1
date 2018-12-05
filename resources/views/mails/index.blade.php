@@ -9,7 +9,7 @@
     @if (count($mails)>1)
         @foreach ($mails as $mail)
             <div class="well">
-                <h3><a href="/mails/{{$mails->id}}">{{$mail->title}}</h3>
+                <h3><a href="/mails/{{$mail->id}}">{{$mail->subject}}</h3>
                 <small>Written on {{$mail->created_at}}</small>
             </div>
         @endforeach

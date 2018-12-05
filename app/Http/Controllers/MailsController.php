@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mails;
+use App\Mail;
 
 class MailsController extends Controller
 {
@@ -26,7 +26,7 @@ class MailsController extends Controller
      */
     public function create()
     {
-        //
+        return view('mails.create');
     }
 
     /**

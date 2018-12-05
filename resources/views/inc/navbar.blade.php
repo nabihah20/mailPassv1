@@ -1,6 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
+
+        <!-- Branding Image -->
         <a class="navbar-brand" href="{{ url('/') }}">
+            ​<picture>
+            <img alt="MailPass" src="img/logomailpass.png" height="30" width="auto">
+            <source srcset="img/logomailpass.svg" type="image/svg+xml">
+            </picture>
+        
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

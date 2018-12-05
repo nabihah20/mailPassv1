@@ -21,5 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('/mail', 'MailController@index');
-Route::post('/postMail', 'MailController@post');
+Route::resource('mails', 'MailsController@index');

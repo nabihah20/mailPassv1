@@ -43,12 +43,14 @@ class MailsController extends Controller
             'message'=>'required'
         ]);
         
-        //create post
-        $post = new Post;
-        $post->recipientEmail = $request ->input('recipientEmail');
-        $post->subject = $request ->input('subject');
-        $post->message = $request->input('message');
-        $post->save();
+        //create Mail
+        $mail = new Mail;
+        $mail->email = auth()->user()->email;
+        $mail->recipientEmail = $request ->input('recipientEmail');
+        $mail->subject = $request ->input('subject');
+        $mail->message = $request->input('message');
+        $mail->user_id = auth()->user()->id;
+        $mail->save();
 
         return redirect('/mails')->with('success', 'Mails Sent');
     }

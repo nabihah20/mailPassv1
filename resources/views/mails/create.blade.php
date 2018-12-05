@@ -9,7 +9,7 @@
     {!! Form::open(['action' => 'MailsController@store','method' =>'POST']) !!}
         <div class="form-group">
             {{Form::label('email','From')}}
-            {{Form::email('email','',['class'=>'form-control','placeholder' => 'Email'])}}
+            {{Form::email('email','',['class'=>'form-control','placeholder' => auth()->user()->email])}}
         </div>
         <div class="form-group">
             {{Form::label('recipientEmail','To')}}

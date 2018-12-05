@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('title')
-    Mails {{$mail->id}}
+    Mail {{$mail->id}}
 @endsection
 
 @section('content')
     
         <a href="/mails" class="btn btn-default">Go Back</a>
         <h1>{{$mail->subject}}</h1>
-        <h5>To: {{$mail->senderEmail}}</h5>
+        <h5>To: {{$mail->recipientEmail}}</h5>
         <h5>From: {{$mail->email}}</h5>
         <div>
             {!!$mail->message!!}    

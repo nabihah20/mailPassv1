@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Send Email</h1>
+    <h1>Sent</h1>
     {!! Form::open(['action' => 'MailController@post','method' =>'POST']) !!}
     {{csrf_field()}}
         <div class="form-group">

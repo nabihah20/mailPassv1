@@ -12,4 +12,8 @@ class Mail extends Model
     public $primarykey = 'id';
     // Timestamps
     public $timestamp = true;
+
+    public function user(){
+        return $this ->belongsTo('App\User');
+    }
 }

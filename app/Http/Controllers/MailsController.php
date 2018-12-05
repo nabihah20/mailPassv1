@@ -38,14 +38,14 @@ class MailsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'senderEmail'=>'required',
+            'recipientEmail'=>'required',
             'subject'=>'required',
             'message'=>'required'
         ]);
         
         //create post
         $post = new Post;
-        $post->senderEmail = $request ->input('senderEmail');
+        $post->recipientEmail = $request ->input('recipientEmail');
         $post->subject = $request ->input('subject');
         $post->message = $request->input('message');
         $post->save();

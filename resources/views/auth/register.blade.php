@@ -67,10 +67,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Register') }}
                                 </button>
-                                <a href="{{ url('auth/google') }}" class="btn btn-primary">Register with Google</a>
+ 
+                                <a href="{{ url('auth/google') }}" class="btn btn-block btn-google"><span class="fa fa-google"></span>  Register Google</a>
+
                             </div>
                         </div>
                     </form>

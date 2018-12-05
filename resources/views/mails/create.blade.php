@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('title')
-    Create New Email
+    Compose Mail
 @endsection
 
 @section('content')
-    <h1>Create New Email</h1>
+    <h1>Compose Mail</h1>
     {!! Form::open(['action' => 'MailsController@store','method' =>'POST']) !!}
         <div class="form-group">
-
-            {{Form::text('email','',['class'=>'form-control','placeholder' => 'Email'])}}
+            {{Form::label('email','From')}}
+            {{Form::email('email','',['class'=>'form-control','placeholder' => 'Email'])}}
         </div>
         <div class="form-group">
-            {{Form::label('senderEmail','Sender Email')}}
-            {{Form::text('senderEmail','',['class'=>'form-control','placeholder' => 'Sender Email'])}}
+            {{Form::label('recipientEmail','To')}}
+            {{Form::email('recipientEmail','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
         </div>
         <div class="form-group">
             {{Form::label('subject','Subject')}}

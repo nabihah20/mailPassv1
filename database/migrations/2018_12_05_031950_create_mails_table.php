@@ -17,7 +17,7 @@ class CreateMailsTable extends Migration
             
             $table->increments('id');
             $table->string('email')->reference('email')->on('users');
-            $table->string('senderEmail')->unique();
+            $table->string('recipientEmail')->unique();
             $table->string('subject');
             $table->mediumText('message');
             $table->timestamps();

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    Mails
+    Inbox
 @endsection
 
 @section('content')
-    <h1>Mail</h1>
+    <h1>Inbox</h1>
     @if (count($mails)>1)
         @foreach ($mails as $mail)
             <div class="well">

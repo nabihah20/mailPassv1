@@ -19,6 +19,9 @@
                     @endif
 
                     You are logged in!
+                    <div style="text-align: center;">
+                        <a class="btn btn-primary btn-lg" href="/createmail" role="button"></span> Create new mail</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ class MailsController extends Controller
     public function index()
     {
         //$mails = Mail::all();
-        //$mails = Mail::orderBy('created_at','desc')->paginate(10);
+        $mails = Mail::orderBy('created_at','desc')->paginate(10);
         return view('mails.index')->with('mails',$mails);
     }
 

@@ -8,8 +8,8 @@
     <h1>Create New Email</h1>
     {!! Form::open(['action' => 'MailsController@store','method' =>'POST']) !!}
         <div class="form-group">
-            {{Form::email($name, $value = null, $attributes = [])}}
-            {{Form::text('senderEmail','',['class'=>'form-control','placeholder' => 'Sender Email'])}}
+
+            {{Form::text('email','',['class'=>'form-control','placeholder' => 'Email'])}}
         </div>
         <div class="form-group">
             {{Form::label('senderEmail','Sender Email')}}

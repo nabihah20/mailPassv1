@@ -21,7 +21,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+            <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

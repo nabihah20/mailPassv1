@@ -48,7 +48,8 @@ class MailsController extends Controller
      */
     public function show($id)
     {
-        //
+        $mail = Mail::find($id);
+        return view('mails.show')->with('mail',$mail);
     }
 
     /**

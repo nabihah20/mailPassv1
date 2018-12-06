@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Home
+    Dashboard
 @endsection
 
 @section('content')
@@ -12,15 +12,28 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
                     <div style="text-align: center;">
                         <a class="btn btn-primary btn-lg" href="/mails" role="button"><span class="glyphicon glyphicon-envelope"></span>  Inbox </a>
+                    </div>
+                    <div>
+                        @if (count($mails) > 0)
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Title</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                                @foreach($mails as $mail)
+                                    <tr>
+                                        <th>{{$mail->message}}</th>
+                                        <th><a href="/mails/{{$mail->id}}/" class="btn btn-default">View</th>
+                                        <th></th>
+                                    </tr>
+                                @endforeach
+                        </table>
+                        @else
+                            <p>You have no mail</p>
+                        @endif  
                     </div>
                 </div>
             </div>

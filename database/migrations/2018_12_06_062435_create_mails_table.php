@@ -16,8 +16,9 @@ class CreateMailsTable extends Migration
         Schema::create('mails', function (Blueprint $table) {
             
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('email')->reference('email')->on('users');
-            $table->string('recipientEmail')->unique();
+            $table->string('recipientEmail');
             $table->string('subject');
             $table->mediumText('message');
             $table->timestamps();
@@ -34,3 +35,4 @@ class CreateMailsTable extends Migration
         Schema::dropIfExists('mails');
     }
 }
+

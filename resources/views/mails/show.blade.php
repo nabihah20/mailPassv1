@@ -7,12 +7,17 @@
 @section('content')
     
         <a href="/mails" class="btn btn-default">Go Back</a>
+        <br/>
         <h1>{{$mail->subject}}</h1>
+        <br/>
         <h5>To: {{$mail->recipientEmail}}</h5>
         <h5>From: {{$mail->email}}</h5>
+        <hr>
+        <br/><br/>
         <div>
             {!!$mail->message!!}    
         </div>
+        <br/>
         <hr>
         <small>Written on {{$mail->created_at}}</small>
         <hr>

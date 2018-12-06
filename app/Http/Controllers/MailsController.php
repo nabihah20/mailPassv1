@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail;
+use App\Mails;
+use Mail;
 
 class MailsController extends Controller
 {
@@ -24,7 +25,7 @@ class MailsController extends Controller
     public function index()
     {
         //$mails = Mail::all();
-        $mails = Mail::orderBy('created_at','desc')->paginate(10);
+        $mails = Mails::orderBy('created_at','desc')->paginate(10);
         return view('mails.index')->with('mails',$mails);
     }
 
@@ -53,13 +54,27 @@ class MailsController extends Controller
         ]);
         
         //create Mail
-        $mail = new Mail;
+        $mail = new Mails;
         $mail->email = auth()->user()->email;
         $mail->recipientEmail = $request ->input('recipientEmail');
         $mail->subject = $request ->input('subject');
         $mail->message = $request->input('message');
         $mail->user_id = auth()->user()->id;
         $mail->save();
+
+        //$data = [
+            //'email' => auth()->user()->email,
+            //'recipientEmail' => $request ->recipientEmail,
+            //'subject' => $request ->subject,
+            //'message' => $request->message, 
+        //];
+
+        //Send Mail
+        //Mail::send('mails.create',$data,function($message) use ($data){
+            //$message -> from ($data['email']);
+            //$message -> to ($data['recipientEmail']);
+            //$message -> subject ($data['subject']);
+        //});
 
         return redirect('/mails')->with('success', 'Mails Sent');
     }
@@ -72,7 +87,7 @@ class MailsController extends Controller
      */
     public function show($id)
     {
-        $mail = Mail::find($id);
+        $mail = Mails::find($id);
         return view('mails.show')->with('mail',$mail);
     }
 

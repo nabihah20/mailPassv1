@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
 
     public function mails(){
-        return $this ->hasMany('App\Mail');
+        return $this ->hasMany('App\Mails');
     }
 }

@@ -5,39 +5,33 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    <div style="text-align: center;">
-                        <a class="btn btn-primary btn-lg" href="/mails" role="button"><span class="glyphicon glyphicon-envelope"></span>  Inbox </a>
-                    </div>
-                    <div>
-                        @if (count($mails) > 0)
-                        <table class="table table-striped">
-                            <tr>
-                                <th>Title</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                                @foreach($mails as $mail)
-                                    <tr>
-                                        <th>{{$mail->message}}</th>
-                                        <th><a href="/mails/{{$mail->id}}/" class="btn btn-default">View</th>
-                                        <th></th>
-                                    </tr>
-                                @endforeach
-                        </table>
-                        @else
-                            <p>You have no mail</p>
-                        @endif  
-                    </div>
-                </div>
-            </div>
+<div class="jumbotron">
+    <h2>Dashboard</h2>
+    <a class="btn btn-primary btn-lg" href="/composemail" role="button"><span class="glyphicon glyphicon-plus"></span>  Compose </a>
+    <br/><br/>
+            @if (count($mails) > 0)
+            <table class="table table-striped">
+                <tr>
+                    <th>Subject</th>
+                    <th></th>
+                    <th>Action</th>
+                </tr>
+                    @foreach($mails as $mail)
+                        <tr>
+                            <td><a href="/mails/{{$mail->id}}/">{{$mail->subject}}</a></td>
+                            <td></td>
+                            <td>
+                                {!!Form::open(['action'=>['MailsController@destroy',$mail->id],'method'=>'POST','class'=>'pull-left'])!!}
+                                    {{Form::hidden('_method','DELETE')}}
+                                    {{Form::submit('Delete',['class'=>'btn btn-danger'])}}
+                                {!! Form::close() !!}  
+                            </td>
+                        </tr>
+                    @endforeach
+            </table>
+            @else
+                <p>You have no mail</p>
+            @endif  
         </div>
-    </div>
-</div>
+
 @endsection

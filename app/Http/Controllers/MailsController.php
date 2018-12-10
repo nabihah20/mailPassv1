@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mails;
 use Mail;
+use Swift_Transport;
+use Swift_Message;
+use Swift_Mailer;
+use App\Http\Controllers\Controller;
 
 class MailsController extends Controller
 {
@@ -45,38 +49,105 @@ class MailsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    
+    //public function store(Request $request)
+    //{
+        //$this->validate($request,[
+            //'recipientEmail'=>'required',
+            //'subject'=>'required',
+            //'message'=>'required'
+        //]);
+        
+        //create Mail
+        //$mails = new Mails;
+        //$mails->email = auth()->user()->email;
+        //$mails->recipientEmail = $request ->input('recipientEmail');
+        //$mails->subject = $request ->input('subject');
+        //$mails->message = $request->input('message');
+        //$mails->user_id = auth()->user()->id;
+        //$mails->save();
+    //}
+
+    public function postMail(Request $request)
     {
         $this->validate($request,[
             'recipientEmail'=>'required',
             'subject'=>'required',
-            'message'=>'required'
+            'bodyMessage'=>'required'
         ]);
-        
-        //create Mail
-        $mail = new Mails;
-        $mail->email = auth()->user()->email;
-        $mail->recipientEmail = $request ->input('recipientEmail');
-        $mail->subject = $request ->input('subject');
-        $mail->message = $request->input('message');
-        $mail->user_id = auth()->user()->id;
-        $mail->save();
 
-        //$data = [
+        $data_toview = array();
+        $data_toview['bodyMessage']= $request->input('bodyMessage');
+
+        $email_sender 	= auth()->user()->email;
+        $email_pass		= 'terbilang';
+        $email_to 		= $request ->input('recipientEmail');
+
+        // Backup your default mailer
+        $backup = \Mail::getSwiftMailer();
+
+        try{
+
+                    //https://accounts.google.com/DisplayUnlockCaptcha
+                    // Setup your gmail mailer
+                    $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587, 'tls');
+                    $transport->setUsername($email_sender);
+                    $transport->setPassword($email_pass);
+
+                    // Any other mailer configuration stuff needed...
+                    $gmail = new Swift_Mailer($transport);
+
+                    // Set the mailer as gmail
+                    Mail::setSwiftMailer($gmail);
+
+                    $data['emailto'] = $email_sender;
+                    $data['sender'] = $email_to;
+                    //Sender dan Reply harus sama
+
+                    Mail::send('mails.create', $data_toview, function($message) use ($data)
+                    {
+
+                        $message->from($data['sender'], 'Laravel Mailer');
+                        $message->to($data['emailto'])
+                        ->replyTo($data['sender'], 'Laravel Mailer')
+                        ->subject($request ->input('subject'));
+
+                        return redirect('/mails')->with('success', 'Mails Sent');
+
+                    });
+
+        }catch(\Swift_TransportException $e){
+            $response = $e->getMessage() ;
+            echo $response;
+        }
+
+
+        // Restore your original mailer
+        Mail::setSwiftMailer($backup);
+
+                //Store Mail
+                $mails = new Mails;
+                $mails->email = auth()->user()->email;
+                $mails->recipientEmail = $request ->input('recipientEmail');
+                $mails->subject = $request ->input('subject');
+                $mails->message = $request->input('bodyMessage');
+                $mails->user_id = auth()->user()->id;
+                $mails->save();
+        //$info = [
             //'email' => auth()->user()->email,
-            //'recipientEmail' => $request ->recipientEmail,
-            //'subject' => $request ->subject,
-            //'message' => $request->message, 
+            //'recipientEmail' => $request ->input('recipientEmail'),
+            //'subject' => $request ->input('subject'),
+            //'message' => $request->input('message'),
         //];
 
         //Send Mail
-        //Mail::send('mails.create',$data,function($message) use ($data){
-            //$message -> from ($data['email']);
-            //$message -> to ($data['recipientEmail']);
-            //$message -> subject ($data['subject']);
+        //Mail::send('mails.create',["data1"=>$data] , function($message){
+            //$message -> from ('bihatq@gmail.com','terbilang');
+            //$message -> to ($data1['recipientEmail']);
+            //$message -> subject ($data1['subject']);
         //});
 
-        return redirect('/mails')->with('success', 'Mails Sent');
+        //return redirect('/mails')->with('success', 'Mails Sent');
     }
 
     /**

@@ -15,7 +15,7 @@
         <hr>
         <br/><br/>
         <div>
-            {!!$mail->message!!}    
+            {!!$mail->bodyMessage!!}    
         </div>
         <br/>
         <hr>

@@ -20,7 +20,7 @@ class CreateMailsTable extends Migration
             $table->string('email')->reference('email')->on('users');
             $table->string('recipientEmail');
             $table->string('subject');
-            $table->mediumText('message');
+            $table->mediumText('bodyMessage');
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@
                             </td>
                             <td></td>
                         </tr>
-                    @endforeach
+                        @endforeach
             </table>
             @else
                 <p>You have no mail</p>

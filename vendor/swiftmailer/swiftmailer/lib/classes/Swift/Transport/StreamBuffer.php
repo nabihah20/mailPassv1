@@ -259,7 +259,7 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
         if (!empty($this->params['sourceIp'])) {
             $options['socket']['bindto'] = $this->params['sourceIp'].':0';
         }
-
+        
         if (isset($this->params['stream_context_options'])) {
             $options = array_merge($options, $this->params['stream_context_options']);
         }

@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Compose Mail</h1>
-    {!! Form::open(['action' => 'MailsController@store','method' =>'POST']) !!}
+    {!! Form::open(['action' => 'MailsController@postMail','method' =>'POST']) !!}
         <div class="form-group">
             {{Form::label('email','From')}}
             {{Form::email('email','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}
@@ -20,9 +20,9 @@
             {{Form::text('subject','',['class'=>'form-control','placeholder' => 'Subject'])}}
         </div>
         <div class="form-group">
-            {{Form::label('message','Message')}}
-            {{Form::textarea('message','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
+            {{Form::label('bodyMessage','Message')}}
+            {{Form::textarea('bodyMessage','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
         </div>
-        {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+        {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection

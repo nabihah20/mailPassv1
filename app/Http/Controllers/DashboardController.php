@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mails;
 use App\User;
 
 class DashboardController extends Controller

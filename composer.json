@@ -17,6 +17,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "swiftmailer/swiftmailer": "^6.0",
+        "symfony/http-foundation": "^4.2",
         "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {

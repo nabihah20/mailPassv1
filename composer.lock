@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72e42ae3339c0f3c7e68b9e85c5d2911",
+    "content-hash": "f09bcb64efacc08763cca9decbd47abe",
     "packages": [
         {
             "name": "bartlett/umlwriter",

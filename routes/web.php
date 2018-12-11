@@ -17,6 +17,7 @@ Route::get('/about', 'PagesController@about');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/inbox', 'DashboardController@inbox');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

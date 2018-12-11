@@ -1,21 +1,19 @@
 @extends('layouts.app')
 
 @section('title')
-    Dashboard
+    Inbox
 @endsection
 
 @section('content')
 <div class="jumbotron">
     <h2>Dashboard</h2>
     <a class="btn btn-info btn-lg" href="/composemail" role="button"><span class="glyphicon glyphicon-plus"></span>  Compose </a>
-    <a class="btn btn-success btn-lg" href="/inbox" role="button"><span class="glyphicon glyphicon-envelope"></span>  Inbox </a>
     <br/><br/>
             @if (count($mails) > 0)
             <table class="table table-striped">
                 <tr>
                     <th>Subject</th>
                     <th>Action</th>
-                    <th>Status</th>
                 </tr>
                     @foreach($mails as $mail)
                         <tr>
@@ -26,12 +24,11 @@
                                     {{Form::submit('Delete',['class'=>'btn btn-danger'])}}
                                 {!! Form::close() !!}  
                             </td>
-                            <td></td>
                         </tr>
                         @endforeach
             </table>
             @else
-                <p>You have no sent mail</p>
+                <p>You have no receive mail</p>
             @endif  
         </div>
 

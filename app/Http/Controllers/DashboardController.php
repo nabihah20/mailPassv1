@@ -29,4 +29,11 @@ class DashboardController extends Controller
         $user = User::find($user_id);
         return view('dashboard')->with('mails', $user ->mails)->with('status', 'You are logged in!');
     }
+
+    public function inbox()
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('dashboard')->with('mails', $user ->mails)->with('status', 'You are logged in!');
+    }
 }

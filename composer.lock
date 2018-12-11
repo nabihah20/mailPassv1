@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6706efddd773a011b66446e2b89f8224",
+    "content-hash": "8f4c038e94f78f9cebb480171b5b21a1",
     "packages": [
         {
             "name": "dacastro4/laravel-gmail",

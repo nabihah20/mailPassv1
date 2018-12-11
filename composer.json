@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "bartlett/umlwriter": "^1.2",
         "dacastro4/laravel-gmail": "^0.6.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",

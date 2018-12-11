@@ -164,6 +164,7 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'B' => 
         array (
             'BeyondCode\\DumpServer\\' => 22,
+            'Bartlett\\' => 9,
         ),
         'A' => 
         array (
@@ -431,6 +432,10 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
         ),
+        'Bartlett\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -508,6 +513,17 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Bartlett\\UmlWriter\\Console\\Application' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Console/Application.php',
+        'Bartlett\\UmlWriter\\Console\\Command\\DiagramRender' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Console/Command/DiagramRender.php',
+        'Bartlett\\UmlWriter\\Console\\Command\\DiagramRenderClass' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Console/Command/DiagramRenderClass.php',
+        'Bartlett\\UmlWriter\\Console\\Command\\DiagramRenderNamespace' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Console/Command/DiagramRenderNamespace.php',
+        'Bartlett\\UmlWriter\\Processor\\AbstractProcessor' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Processor/AbstractProcessor.php',
+        'Bartlett\\UmlWriter\\Processor\\GraphvizProcessor' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Processor/GraphvizProcessor.php',
+        'Bartlett\\UmlWriter\\Processor\\PlantUMLProcessor' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Processor/PlantUMLProcessor.php',
+        'Bartlett\\UmlWriter\\Processor\\ProcessorInterface' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Processor/ProcessorInterface.php',
+        'Bartlett\\UmlWriter\\Reflector\\Reflect' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Reflector/Reflect.php',
+        'Bartlett\\UmlWriter\\Reflector\\ReflectorInterface' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Reflector/ReflectorInterface.php',
+        'Bartlett\\UmlWriter\\Reflector\\TokenReflection' => __DIR__ . '/..' . '/bartlett/umlwriter/src/Bartlett/UmlWriter/Reflector/TokenReflection.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

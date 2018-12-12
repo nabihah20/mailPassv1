@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             {{Form::label('','Max. 32MB')}}
-            {{Form::file('file','Attachment',['class'=>'btn btn-default btn-file'])}} 
+            {{Form::file('attachment',['class'=>'btn btn-default btn-file'])}} 
         </div>
         {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

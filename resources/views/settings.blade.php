@@ -10,7 +10,7 @@
     <h2>Two-Factor Authentication</h2>
     {!! Form::open(['action' => 'DashboardController@settings','method' =>'POST']) !!}
         <div class="form-group">
-            {{Form::label('recipientEmail','Recipient Name')}}
+            {{Form::label('recipientEmail','Recipient Email')}}
             {{Form::email('recipientEmail','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
         </div>
         <div class="form-group">

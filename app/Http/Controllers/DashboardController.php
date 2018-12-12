@@ -36,4 +36,23 @@ class DashboardController extends Controller
         $user = User::find($user_id);
         return view('inbox')->with('mails', $user ->mails)->with('status', 'You are logged in!');
     }
+
+    public function settings()
+    {
+        $this->validate($request, [
+            'recipientEmail'=>'required',
+            'recipientPhone'=>'required',
+            'type'=>'required'
+        ]);
+
+        //Store Settings
+        //$mails = new Mails;
+        //$mails->recipientEmail = $request ->input('recipientEmail');
+        //$mails->recipientPhone = $request ->input('recipientPhone');
+        //$mails->type = $request->input('type');
+        //$mails->user_id = auth()->user()->id;
+        //$mails->save();
+
+        return redirect('dashboard')->with('success', 'Settings Saved');
+    }
 }

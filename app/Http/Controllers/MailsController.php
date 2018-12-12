@@ -66,6 +66,11 @@ class MailsController extends Controller
         'file' => $request->input('file'),
         );
 
+        $pathToFile = array(
+            'file' => $request->input('file'),
+        );
+
+
         //https://accounts.google.com/DisplayUnlockCaptcha
 
         Mail::send('mails.viewMail', $data,$pathToFile, function($message) use ($data) {

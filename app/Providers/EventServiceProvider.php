@@ -20,15 +20,18 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
-    /**
-     * Register any events for your application.
+        /**
+     * Register any other events for your application.
      *
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
-    public function boot()
+    public function boot(DispatcherContract $events)
     {
-        parent::boot();
+    parent::boot($events);
 
+    $events->listen('mailer.sending', function ($message) {
         //
+    });
     }
 }

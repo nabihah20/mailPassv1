@@ -45,5 +45,9 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'), // Your Google+ Client Secret
         'redirect' => 'http://mailpass.com/auth/google/callback',
     ],
-
+    'twizo' => [
+        'SECRET' => env('SECRET'),
+        'API_HOST' => env('API_HOST'),
+        'redirect' => 'http:/api-asia-01-out.twizo.com',
+    ], 
 ];

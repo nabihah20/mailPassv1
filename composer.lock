@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f09bcb64efacc08763cca9decbd47abe",
+    "content-hash": "b753d721c8e7059b3d5e9096b56da07a",
     "packages": [
         {
             "name": "bartlett/umlwriter",
@@ -3742,6 +3742,47 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2017-11-27T11:13:29+00:00"
+        },
+        {
+            "name": "twizo/lib-api-php",
+            "version": "0.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twizoapi/lib-api-php.git",
+                "reference": "2e545d859784184138332c9b5bfc063940e3c926"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twizoapi/lib-api-php/zipball/2e545d859784184138332c9b5bfc063940e3c926",
+                "reference": "2e545d859784184138332c9b5bfc063940e3c926",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "ext-spl": "*",
+                "php": "^5.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twizo\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Twizo",
+                    "email": "info@twizo.com"
+                }
+            ],
+            "description": "Library to connect to Twizo to send SMS, Number Lookup or Verifications",
+            "homepage": "https://www.twizo.com/",
+            "time": "2018-05-02T12:22:51+00:00"
         },
         {
             "name": "unisharp/laravel-ckeditor",

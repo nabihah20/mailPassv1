@@ -63,16 +63,16 @@ class MailsController extends Controller
         'recipientEmail' => $request->input('recipientEmail'),
         'subject' => $request->input('subject'),
         'bodyMessage' => $request->input('bodyMessage'),
-        //'file' => $request->input('file'),
+        'file' => $request->input('file'),
         );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
 
-        Mail::send('mails.viewMail', $data, function($message) use ($data) {
+        Mail::send('mails.viewMail', $data,$pathToFile, function($message) use ($data) {
             $message->from($data['email']);
             $message->to($data['recipientEmail']);
             $message->subject($data['subject']);
-            //$message->attach($data['file']);
+            $message->attach($pathToFile, ['as' => $display, 'mime' => $mime]);
         });
                 
         //Store Mail

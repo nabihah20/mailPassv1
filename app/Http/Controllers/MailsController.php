@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mails;
 use Mail;
-//use Swift_Transport;
-//use Swift_Message;
-//use Swift_Mailer;
-//use App\Http\Controllers\Controller;
+use Auth;
+use Session;
+use Redirect;
+use Image;
+use Storage;
 
 class MailsController extends Controller
 {
@@ -55,8 +56,8 @@ class MailsController extends Controller
         $this->validate($request, [
             'recipientEmail'=>'required',
             'subject'=>'required',
-            'bodyMessage'=>'required'
-            
+            'bodyMessage'=>'required',
+            'a_file'=>'mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls'            
         ]);
 
         $data = array(
@@ -64,6 +65,7 @@ class MailsController extends Controller
         'recipientEmail' => $request->input('recipientEmail'),
         'subject' => $request->input('subject'),
         'bodyMessage' => $request->input('bodyMessage'),
+        'a_file'=>$request->a_file
         );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
@@ -72,12 +74,13 @@ class MailsController extends Controller
             $message->from($data['email']);
             $message->to($data['recipientEmail']);
             $message->subject($data['subject']);
-            $message->attach($request->file('attachment')->getRealPath(), [
-                'as' => $request->file('attachment')->getClientOriginalName(), 
-                'mime' => $request->file('attachment')->getMimeType()
-            ]);
+            $message->attach($data['a_file'] ->getRealPath(), array(
+                'as' => 'a_file'. $data['a_file']->getClientOriginalExtension(),
+                'mime' => $data['a_file']->getMimeType())
+            );
         });
-                
+        
+        
         //Store Mail
         $mails = new Mails;
         $mails->email = auth()->user()->email;

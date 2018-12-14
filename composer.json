@@ -12,6 +12,7 @@
         "bartlett/umlwriter": "^1.2",
         "dacastro4/laravel-gmail": "^0.6.0",
         "fideloper/proxy": "^4.0",
+        "jdavidbakr/mail-tracker": "^2.1",
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^3.2",
         "laravel/tinker": "^1.0",

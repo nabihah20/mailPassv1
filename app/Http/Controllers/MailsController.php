@@ -11,6 +11,8 @@ use Redirect;
 use Image;
 use Storage;
 
+ini_set('max_execution_time', 300); 
+
 class MailsController extends Controller
 {
         /**
@@ -53,34 +55,31 @@ class MailsController extends Controller
     
     public function postMail(Request $request)
     {
-        $this->validate($request, [
-            'recipientEmail'=>'required',
-            'subject'=>'required',
-            'bodyMessage'=>'required',
-            'a_file'=>'mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls'            
-        ]);
-
-        $data = array(
+        $data = [
         'email' => auth()->user()->email,
         'recipientEmail' => $request->input('recipientEmail'),
         'subject' => $request->input('subject'),
         'bodyMessage' => $request->input('bodyMessage'),
-        'a_file'=>$request->a_file
-        );
+        'file' => $request->file('file'),
+        ];
+
+        // Required validation
+        $this->validate($request, [
+            'recipientEmail'=>'required',
+            'subject'=>'required',
+            'bodyMessage'=>'required',
+        ]);
 
         //https://accounts.google.com/DisplayUnlockCaptcha
-
-        Mail::send('mails.viewMail', $data, function($message) use ($data) {
+        Mail::send('mails.viewMail', $data ,function ($message) use ($data) 
+        {
             $message->from($data['email']);
             $message->to($data['recipientEmail']);
             $message->subject($data['subject']);
-            $message->attach($data['a_file'] ->getRealPath(), array(
-                'as' => 'a_file'. $data['a_file']->getClientOriginalExtension(),
-                'mime' => $data['a_file']->getMimeType())
-            );
+            //Attach file
+            $message->attach($data['file']);
         });
-        
-        
+
         //Store Mail
         $mails = new Mails;
         $mails->email = auth()->user()->email;
@@ -92,7 +91,6 @@ class MailsController extends Controller
 
         return redirect('dashboard')->with('success', 'Mails Sent');
     }
-
     /**
      * Display the specified resource.
      *

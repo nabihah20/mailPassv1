@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Compose Mail</h1>
-    {!! Form::open(['action' => 'MailsController@postMail','method' =>'POST']) !!}
+    {!! Form::open(['action' => 'MailsController@postMail','method' =>'POST','enctype' =>'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('email','From')}}
             {{Form::email('email','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}
@@ -24,8 +24,8 @@
             {{Form::textarea('bodyMessage','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
         </div>
         <div class="form-group">
-            {{Form::label('','Max. 32MB')}}
-            {{Form::file('a_file',['span class'=>'btn btn-default btn-file'])}} 
+            {{Form::label('','Max. 10MB')}}
+            {{Form::file('file',['span class'=>'btn btn-default btn-file'])}} 
         </div>
         {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

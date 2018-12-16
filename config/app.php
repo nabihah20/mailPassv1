@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Dacastro4\LaravelGmail\LaravelGmailServiceProvider::class,
+        jdavidbakr\MailTracker\MailTrackerServiceProvider::class,
     ],
 
     /*

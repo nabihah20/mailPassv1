@@ -1,0 +1,28 @@
+@extends('layouts.app')
+
+@section('title')
+    Compose Mail
+@endsection
+
+@section('content')
+    <h1>Compose Mail</h1>
+    {!! Form::open(['action' => 'MailsController@postMailNoAttach','method' =>'POST','enctype' =>'multipart/form-data']) !!}
+        <div class="form-group">
+            {{Form::label('email','From')}}
+            {{Form::email('email','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('recipientEmail','To')}}
+            {{Form::email('recipientEmail','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('subject','Subject')}}
+            {{Form::text('subject','',['class'=>'form-control','placeholder' => 'Subject'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('bodyMessage','Message')}}
+            {{Form::textarea('bodyMessage','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
+        </div>
+        {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
+    {!! Form::close() !!}
+@endsection

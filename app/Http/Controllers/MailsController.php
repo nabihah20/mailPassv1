@@ -67,7 +67,7 @@ class MailsController extends Controller
         $this->validate($request, [
             'recipientEmail'=>'required',
             'subject'=>'required',
-            'bodyMessage'=>'required',
+            'bodyMessage'=>'required'
         ]);
 
         //https://accounts.google.com/DisplayUnlockCaptcha
@@ -99,19 +99,19 @@ class MailsController extends Controller
 
     public function postMailNoAttach(Request $request)
     {
-        $data = [
-        'email' => auth()->user()->email,
-        'recipientEmail' => $request->input('recipientEmail'),
-        'subject' => $request->input('subject'),
-        'bodyMessage' => $request->input('bodyMessage'),
-        ];
-
         // Required validation
         $this->validate($request, [
             'recipientEmail'=>'required',
             'subject'=>'required',
-            'bodyMessage'=>'required',
+            'bodyMessage'=>'required'
         ]);
+
+        $data = array(
+        'email' => auth()->user()->email,
+        'recipientEmail' => $request->input('recipientEmail'),
+        'subject' => $request->input('subject'),
+        'bodyMessage' => $request->input('bodyMessage'),
+        );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
         Mail::send('mails.viewMail', $data ,function ($message) use ($data) 

@@ -122,13 +122,13 @@ class MailsController extends Controller
         });
 
         //Store Mail
-        $mails = new Mails;
-        $mails->email = auth()->user()->email;
-        $mails->recipientEmail = $request ->input('recipientEmail');
-        $mails->subject = $request ->input('subject');
-        $mails->bodyMessage = $request->input('bodyMessage');
-        $mails->user_id = auth()->user()->id;
-        $mails->save();
+        //$mails = new Mails;
+        //$mails->email = auth()->user()->email;
+        //$mails->recipientEmail = $request ->input('recipientEmail');
+        //$mails->subject = $request ->input('subject');
+        //$mails->bodyMessage = $request->input('bodyMessage');
+        //$mails->user_id = auth()->user()->id;
+        //$mails->save();
 
         return redirect('dashboard')->with('success', 'Mails Sent');
     }

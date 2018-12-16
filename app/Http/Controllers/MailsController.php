@@ -119,7 +119,6 @@ class MailsController extends Controller
             $message->from($data['email']);
             $message->to($data['recipientEmail']);
             $message->subject($data['subject']);
-            $message->bodyMessage($data['bodyMessage']);
         });
 
         //Store Mail

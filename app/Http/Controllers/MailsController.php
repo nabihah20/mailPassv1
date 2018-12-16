@@ -92,6 +92,11 @@ class MailsController extends Controller
         return redirect('dashboard')->with('success', 'Mails Sent');
     }
 
+    public function createnoattach()
+    {
+        return view('mails.createnoattach');
+    }
+
     public function postMailNoAttach(Request $request)
     {
         $data = [

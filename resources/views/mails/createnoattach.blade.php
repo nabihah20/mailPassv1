@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Compose Mail</h1>
-    {!! Form::open(['action' => 'MailsController@postMailNoAttach','method' =>'POST','enctype' =>'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'MailsController@postMailNoAttach','method' =>'POST']) !!}
         <div class="form-group">
             {{Form::label('email','From')}}
             {{Form::email('email','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}

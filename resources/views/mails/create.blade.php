@@ -24,8 +24,8 @@
             {{Form::textarea('bodyMessage','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
         </div>
         <div class="form-group">
-            {{Form::label('','Max. 10MB')}}
-            {{Form::file('file',['span class'=>'btn btn-default btn-file'])}} 
+            {{Form::label('','Max. 2MB')}}
+            {{Form::file('uploaded_file',['span class'=>'btn btn-default btn-file'])}} 
         </div>
         {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

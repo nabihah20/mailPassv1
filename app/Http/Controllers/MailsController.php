@@ -55,13 +55,13 @@ class MailsController extends Controller
     
     public function postMail(Request $request)
     {
-        $data = [
+        $data = array(
         'email' => auth()->user()->email,
         'recipientEmail' => $request->input('recipientEmail'),
         'subject' => $request->input('subject'),
         'bodyMessage' => $request->input('bodyMessage'),
-        'file' => $request->file('file'),
-        ];
+        'uploaded_file' => $request->file('uploaded_file'),
+        );
 
         // Required validation
         $this->validate($request, [
@@ -77,7 +77,16 @@ class MailsController extends Controller
             $message->to($data['recipientEmail']);
             $message->subject($data['subject']);
             //Attach file
-            $message->attach($data['file']);
+            $message->attach($data['uploaded_file']->getRealPath(),
+            //if (isset($_FILES['uploaded_file']) &&
+                //$_FILES['uploaded_file']['error'] == UPLOAD_ERR_OK) {
+                //$mesagge->attach($_FILES['uploaded_file']['tmp_name'],
+                         //$_FILES['uploaded_file']['name']);
+            //}
+            [
+                'as' => $data['uploaded_file']->getClientOriginalName(),
+                'mime' =>$data['uploaded_file']->getClientMimeType(),
+            ]);
         });
 
         //Store Mail
@@ -89,7 +98,7 @@ class MailsController extends Controller
         $mails->user_id = auth()->user()->id;
         $mails->save();
 
-        return redirect('dashboard')->with('success', 'Mails Sent');
+        return redirect('composemail')->with('success', 'Mails Sent');
     }
 
     public function createnoattach()
@@ -122,15 +131,15 @@ class MailsController extends Controller
         });
 
         //Store Mail
-        //$mails = new Mails;
-        //$mails->email = auth()->user()->email;
-        //$mails->recipientEmail = $request ->input('recipientEmail');
-        //$mails->subject = $request ->input('subject');
-        //$mails->bodyMessage = $request->input('bodyMessage');
-        //$mails->user_id = auth()->user()->id;
-        //$mails->save();
+        $mails = new Mails;
+        $mails->email = auth()->user()->email;
+        $mails->recipientEmail = $request ->input('recipientEmail');
+        $mails->subject = $request ->input('subject');
+        $mails->bodyMessage = $request->input('bodyMessage');
+        $mails->user_id = auth()->user()->id;
+        $mails->save();
 
-        return redirect('dashboard')->with('success', 'Mails Sent');
+        return redirect('composemessage')->with('success', 'Mails Sent');
     }
 
     /**

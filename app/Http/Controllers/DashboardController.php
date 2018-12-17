@@ -45,13 +45,7 @@ class DashboardController extends Controller
             'type'=>'required'
         ]);
 
-        //Store Settings
-        //$mails = new Mails;
-        //$mails->recipientEmail = $request ->input('recipientEmail');
-        //$mails->recipientPhone = $request ->input('recipientPhone');
-        //$mails->type = $request->input('type');
-        //$mails->user_id = auth()->user()->id;
-        //$mails->save();
+
 
         return redirect('dashboard')->with('success', 'Settings Saved');
     }

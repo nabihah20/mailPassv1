@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 use App\Mails;
 use Mail;
 use Auth;
-use Session;
-use Redirect;
-use Image;
-use Storage;
 
 ini_set('max_execution_time', 300); 
 
@@ -31,7 +27,7 @@ class MailsController extends Controller
      */
     public function index()
     {
-        //$mails = Mail::all();
+        //$mails = Mails::all();
         $mails = Mails::orderBy('created_at','desc')->paginate(10);
         return view('mails.index')->with('mails',$mails);
     }
@@ -90,13 +86,13 @@ class MailsController extends Controller
         });
 
         //Store Mail
-        $mails = new Mails;
-        $mails->email = auth()->user()->email;
-        $mails->recipientEmail = $request ->input('recipientEmail');
-        $mails->subject = $request ->input('subject');
-        $mails->bodyMessage = $request->input('bodyMessage');
-        $mails->user_id = auth()->user()->id;
-        $mails->save();
+        //$mails = new Mails;
+        //$mails->email = auth()->user()->email;
+        //$mails->recipientEmail = $request ->input('recipientEmail');
+        //$mails->subject = $request ->input('subject');
+        //$mails->bodyMessage = $request->input('bodyMessage');
+        //$mails->user_id = auth()->user()->id;
+        //$mails->save();
 
         return redirect('composemail')->with('success', 'Mails Sent');
     }
@@ -185,8 +181,8 @@ class MailsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $post -> delete();
+        $mails = Mails::find($id);
+        $mails -> delete();
         return redirect('dashboard')->with('succcess','Mail Removed');
     }
 }

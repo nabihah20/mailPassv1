@@ -8,20 +8,20 @@
     <h1>Compose Mail</h1>
     {!! Form::open(['action' => 'MailsController@postMail','method' =>'POST','enctype' =>'multipart/form-data']) !!}
         <div class="form-group">
-            {{Form::label('email','From')}}
-            {{Form::email('email','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}
+            {{Form::label('sender','From')}}
+            {{Form::email('sender','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}
         </div>
         <div class="form-group">
-            {{Form::label('recipientEmail','To')}}
-            {{Form::email('recipientEmail','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
+            {{Form::label('recipient','To')}}
+            {{Form::email('recipient','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
         </div>
         <div class="form-group">
             {{Form::label('subject','Subject')}}
             {{Form::text('subject','',['class'=>'form-control','placeholder' => 'Subject'])}}
         </div>
         <div class="form-group">
-            {{Form::label('bodyMessage','Message')}}
-            {{Form::textarea('bodyMessage','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
+            {{Form::label('content','Message')}}
+            {{Form::textarea('content','',['class'=>'form-control','placeholder' => 'Body Message'])}}
         </div>
         <div class="form-group">
             {{Form::label('','Max. 2MB')}}

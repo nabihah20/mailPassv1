@@ -1,5 +1,5 @@
 <div>
-    {{ $bodyMessage }}
+    {!! $content !!}
 </div>
 
 <p>This email is sent by {{ $email }}</p>

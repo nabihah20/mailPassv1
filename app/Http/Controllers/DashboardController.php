@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mails;
+use jdavidbakr\MailTracker\Model\SentEmail;
 use App\User;
 
 class DashboardController extends Controller
@@ -27,14 +27,14 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('dashboard')->with('mails', $user ->mails)->with('status', 'You are logged in!');
+        return view('dashboard')->with('sent_emails', $user ->sent_emails)->with('status', 'You are logged in!');
     }
 
     public function inbox()
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('inbox')->with('mails', $user ->mails)->with('status', 'You are logged in!');
+        return view('inbox')->with('sent_emails', $user ->sent_emails)->with('status', 'You are logged in!');
     }
 
     public function settings()

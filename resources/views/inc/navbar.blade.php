@@ -4,7 +4,7 @@
         <!-- Branding Image -->
         <a class="navbar-brand" href="{{ url('/') }}">
             ​<picture>
-            <img alt="MailPass" src="img/logomailpass.png" height="30" width="auto">
+            <img src="img/logomailpass.png" height="30" width="auto">
             <source srcset="img/logomailpass.svg" type="image/svg+xml">
             </picture>
         

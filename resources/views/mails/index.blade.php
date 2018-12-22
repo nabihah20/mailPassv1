@@ -6,11 +6,11 @@
 
 @section('content')
     <h1>Inbox</h1>
-    @if (count($mails)>1)
-        @foreach ($mails as $mail)
+    @if (count($sent_emails)>1)
+        @foreach ($sent_emails as $sent_email)
             <div class="well">
-                <h3><a href="/mails/{{$mail->id}}">{{$mail->subject}}</h3>
-                <small>Written on {{$mail->created_at}}</small>
+                <h3><a href="/mails/{{$sent_email->id}}">{{$sent_email->subject}}</h3>
+                <small>Written on {{$sent_email->created_at}}</small>
             </div>
         @endforeach
             {{$mails ->links()}}

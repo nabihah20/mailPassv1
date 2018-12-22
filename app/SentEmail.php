@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mails extends Model
 {
     // Table Name
-    protected $table = 'mails';
+    protected $table = 'sent_emails';
     // Primary Key
     public $primarykey = 'id';
     // Timestamps

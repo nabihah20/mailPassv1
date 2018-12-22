@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mails;
+use jdavidbakr\MailTracker\Model\SentEmail;
+use SentMail;
 use Mail;
 use Auth;
 
@@ -28,8 +29,8 @@ class MailsController extends Controller
     public function index()
     {
         //$mails = Mails::all();
-        $mails = Mails::orderBy('created_at','desc')->paginate(10);
-        return view('mails.index')->with('mails',$mails);
+        $sent_emails = Mails::orderBy('created_at','desc')->paginate(10);
+        return view('mails.index')->with('sent_emails',$sent_emails);
     }
 
     /**
@@ -53,24 +54,24 @@ class MailsController extends Controller
     {
         $data = array(
         'email' => auth()->user()->email,
-        'recipientEmail' => $request->input('recipientEmail'),
+        'recipient' => $request->input('recipient'),
         'subject' => $request->input('subject'),
-        'bodyMessage' => $request->input('bodyMessage'),
+        'content' => $request->input('content'),
         'uploaded_file' => $request->file('uploaded_file'),
         );
 
         // Required validation
         $this->validate($request, [
-            'recipientEmail'=>'required',
+            'recipient'=>'required',
             'subject'=>'required',
-            'bodyMessage'=>'required'
+            'content'=>'required'
         ]);
 
         //https://accounts.google.com/DisplayUnlockCaptcha
         Mail::send('mails.viewMail', $data ,function ($message) use ($data) 
         {
             $message->from($data['email']);
-            $message->to($data['recipientEmail']);
+            $message->to($data['recipient']);
             $message->subject($data['subject']);
             //Attach file
             $message->attach($data['uploaded_file']->getRealPath(),
@@ -91,7 +92,7 @@ class MailsController extends Controller
         //$mails->recipientEmail = $request ->input('recipientEmail');
         //$mails->subject = $request ->input('subject');
         //$mails->bodyMessage = $request->input('bodyMessage');
-        //$mails->user_id = auth()->user()->id;
+        //$sent_emails->user_id = auth()->user()->id;
         //$mails->save();
 
         return redirect('composemail')->with('success', 'Mails Sent');
@@ -106,34 +107,34 @@ class MailsController extends Controller
     {
         // Required validation
         $this->validate($request, [
-            'recipientEmail'=>'required',
+            'recipient'=>'required',
             'subject'=>'required',
-            'bodyMessage'=>'required'
+            'content'=>'required'
         ]);
 
         $data = array(
-        'email' => auth()->user()->email,
-        'recipientEmail' => $request->input('recipientEmail'),
-        'subject' => $request->input('subject'),
-        'bodyMessage' => $request->input('bodyMessage'),
+            'sender' => auth()->user()->email,
+            'recipient' => $request->input('recipient'),
+            'subject' => $request->input('subject'),
+            'content' => $request->input('content'),
         );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
         Mail::send('mails.viewMail', $data ,function ($message) use ($data) 
         {
-            $message->from($data['email']);
-            $message->to($data['recipientEmail']);
+            $message->from($data['sender']);
+            $message->to($data['recipient']);
             $message->subject($data['subject']);
         });
 
         //Store Mail
-        $mails = new Mails;
-        $mails->email = auth()->user()->email;
-        $mails->recipientEmail = $request ->input('recipientEmail');
-        $mails->subject = $request ->input('subject');
-        $mails->bodyMessage = $request->input('bodyMessage');
-        $mails->user_id = auth()->user()->id;
-        $mails->save();
+        //$mails = new Mails;
+        //$mails->email = auth()->user()->email;
+        //$mails->recipientEmail = $request ->input('recipientEmail');
+        //$mails->subject = $request ->input('subject');
+        //$mails->bodyMessage = $request->input('bodyMessage');
+        //$sent_emails->user_id = auth()->user()->id;
+        //$mails->save();
 
         return redirect('composemessage')->with('success', 'Mails Sent');
     }
@@ -146,8 +147,8 @@ class MailsController extends Controller
      */
     public function show($id)
     {
-        $mail = Mails::find($id);
-        return view('mails.show')->with('mail',$mail);
+        $sent_email = SentEmail::find($id);
+        return view('mails.show')->with('sent_email',$sent_email);
     }
 
     /**
@@ -181,8 +182,8 @@ class MailsController extends Controller
      */
     public function destroy($id)
     {
-        $mails = Mails::find($id);
-        $mails -> delete();
+        $sent_emails = SentEmail::find($id);
+        $sent_emails -> delete();
         return redirect('dashboard')->with('succcess','Mail Removed');
     }
 }

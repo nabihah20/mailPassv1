@@ -8,20 +8,20 @@
     <h1>Compose Mail</h1>
     {!! Form::open(['action' => 'MailsController@postMailNoAttach','method' =>'POST']) !!}
         <div class="form-group">
-            {{Form::label('email','From')}}
+            {{Form::label('sender','From')}}
             {{Form::email('email','',['readonly','class'=>'form-control','placeholder' => auth()->user()->email])}}
         </div>
         <div class="form-group">
-            {{Form::label('recipientEmail','To')}}
-            {{Form::email('recipientEmail','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
+            {{Form::label('recipient','To')}}
+            {{Form::email('recipient','',['class'=>'form-control','placeholder' => 'Recipient Email'])}}
         </div>
         <div class="form-group">
             {{Form::label('subject','Subject')}}
             {{Form::text('subject','',['class'=>'form-control','placeholder' => 'Subject'])}}
         </div>
         <div class="form-group">
-            {{Form::label('bodyMessage','Message')}}
-            {{Form::textarea('bodyMessage','',['id'=>'article-ckeditor','class'=>'form-control','placeholder' => 'Body Message'])}}
+            {{Form::label('content','Message')}}
+            {{Form::textarea('content','',['class'=>'form-control','placeholder' => 'Body Message'])}}
         </div>
         {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

@@ -1,3 +1,4 @@
+create_sent_emails
 <?php
 
 use Illuminate\Database\Schema\Blueprint;

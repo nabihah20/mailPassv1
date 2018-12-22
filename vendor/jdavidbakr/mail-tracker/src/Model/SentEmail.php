@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $clicks
  * @property int|null $message_id
  * @property string $meta
+ * @property int $user_id ->reference('id')->on('users');
  */
 class SentEmail extends Model
 {
@@ -29,6 +30,7 @@ class SentEmail extends Model
         'clicks',
         'message_id',
         'meta',
+        'user_id',
     ];
 
     protected $casts = [
@@ -117,5 +119,9 @@ class SentEmail extends Model
     public function urlClicks()
     {
         return $this->hasMany(SentEmailUrlClicked::class);
+    }
+
+    public function user(){
+        return $this ->belongsTo('App\User');
     }
 }

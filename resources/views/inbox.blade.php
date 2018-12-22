@@ -8,6 +8,7 @@
 <div class="jumbotron">
     <h2>Dashboard</h2>
     <a class="btn btn-info btn-lg" href="/composemail" role="button"><span class="glyphicon glyphicon-plus"></span>  Compose </a>
+    <a class="btn btn-success btn-lg" href="/dashboard" role="button"><i class="fa fa-envelope-open"></i>  Sent Mails </a>
     <br/><br/>
             @if (count($mails) > 0)
             <table class="table table-striped">

@@ -26,10 +26,17 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 Route::resource('/mails','MailsController');
 Route::get('/composemail', 'MailsController@create');
 Route::post('/composemail', 'MailsController@postMail');
+
 Route::get('/composemessage', 'MailsController@createnoattach');
 Route::post('/composemessage', 'MailsController@postMailNoAttach');
 
+Route::get('/file', 'FileController@index')->name('viewFile');
+Route::get('/upload', 'FileController@create')->name('formFile');
+Route::post('/upload', 'FileController@store')->name('uploadFile');
+Route::delete('/file/{id}', 'FileController@destroy')->name('deleteFile');
+Route::get('/file/download/{id}', 'FileController@show')->name('downloadFile');
+Route::get('/file/email/{id}', 'FileController@edit')->name('emailFile');
 
-Route::get('/encrypt', 'PagesController@main');
-Route::post('/upload', 'PagesController@upload');
-Route::get('/download', 'PagesController@download');
+//Route::get('/encrypt', 'PagesController@main');
+//Route::post('/upload', 'PagesController@upload');
+//Route::get('/download', 'PagesController@download');

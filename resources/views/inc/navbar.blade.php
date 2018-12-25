@@ -33,6 +33,9 @@
                         @endif
                     </li>
                 @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/file">Manage File</a>
+                </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/composemail">Compose Mail</a>
                     </li>

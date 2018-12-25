@@ -28,3 +28,8 @@ Route::get('/composemail', 'MailsController@create');
 Route::post('/composemail', 'MailsController@postMail');
 Route::get('/composemessage', 'MailsController@createnoattach');
 Route::post('/composemessage', 'MailsController@postMailNoAttach');
+
+
+Route::get('/encrypt', 'PagesController@main');
+Route::post('/upload', 'PagesController@upload');
+Route::get('/download', 'PagesController@download');

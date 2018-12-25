@@ -46,6 +46,10 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         array (
             'jdavidbakr\\MailTracker\\' => 23,
         ),
+        'd' => 
+        array (
+            'dbeurive\\Gpg\\' => 13,
+        ),
         'Z' => 
         array (
             'Zend\\Diactoros\\' => 15,
@@ -199,6 +203,10 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'jdavidbakr\\MailTracker\\' => 
         array (
             0 => __DIR__ . '/..' . '/jdavidbakr/mail-tracker/src',
+        ),
+        'dbeurive\\Gpg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dbeurive/gpg/src',
         ),
         'Zend\\Diactoros\\' => 
         array (
@@ -540,7 +548,7 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
-        'App\\Http\\Controllers\\MailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/MailsController.php',
+        'App\\Http\\Controllers\\MailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/draft.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -13320,6 +13328,7 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'Zend\\Diactoros\\Stream' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/Stream.php',
         'Zend\\Diactoros\\UploadedFile' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UploadedFile.php',
         'Zend\\Diactoros\\Uri' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/Uri.php',
+        'dbeurive\\Gpg\\Gpg' => __DIR__ . '/..' . '/dbeurive/gpg/src/Gpg.php',
         'jdavidbakr\\MailTracker\\AdminController' => __DIR__ . '/..' . '/jdavidbakr/mail-tracker/src/AdminController.php',
         'jdavidbakr\\MailTracker\\Events\\EmailSentEvent' => __DIR__ . '/..' . '/jdavidbakr/mail-tracker/src/Events/EmailSentEvent.php',
         'jdavidbakr\\MailTracker\\Events\\LinkClickedEvent' => __DIR__ . '/..' . '/jdavidbakr/mail-tracker/src/Events/LinkClickedEvent.php',

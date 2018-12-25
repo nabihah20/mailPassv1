@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf357c0ed301511f66b734298e5379c3",
+    "content-hash": "5123193432234156c08073ee62cd07f9",
     "packages": [
         {
             "name": "aws/aws-php-sns-message-validator",
@@ -333,6 +333,45 @@
                 "laravel"
             ],
             "time": "2018-10-15T00:23:38+00:00"
+        },
+        {
+            "name": "dbeurive/gpg",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dbeurive/gpg.git",
+                "reference": "547d9edd835712dc0f5d62c0c257b6575a36b984"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dbeurive/gpg/zipball/547d9edd835712dc0f5d62c0c257b6575a36b984",
+                "reference": "547d9edd835712dc0f5d62c0c257b6575a36b984",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dbeurive\\Gpg\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Common Attribution-NonCommercial 4.0 International license"
+            ],
+            "authors": [
+                {
+                    "name": "Denis BEURIVE",
+                    "email": "denis.beurive@gmail.com"
+                }
+            ],
+            "description": "This package contains the implementation of a simple GPG wrapper",
+            "keywords": [
+                "gpg"
+            ],
+            "time": "2017-01-07T10:51:14+00:00"
         },
         {
             "name": "defuse/php-encryption",

@@ -7,7 +7,6 @@ use jdavidbakr\MailTracker\Model\SentEmail;
 use SentMail;
 use Mail;
 use Auth;
-use Illuminate\Support\Facades\Crypt;
 
 ini_set('max_execution_time', 300); 
 
@@ -53,24 +52,20 @@ class MailsController extends Controller
     
     public function postMail(Request $request)
     {
+        $data = array(
+        'email' => auth()->user()->email,
+        'recipient' => $request->input('recipient'),
+        'subject' => $request->input('subject'),
+        'content' => $request->input('content'),
+        'uploaded_file' => $request->file('uploaded_file'),
+        );
+
         // Required validation
         $this->validate($request, [
             'recipient'=>'required',
             'subject'=>'required',
-            'content'=>'required',
+            'content'=>'required'
         ]);
-        
-        // Encrypted file
-        $data ['encryptedfile'] ->$request->file('uploaded_file');
-        $encrypted = Crypt::encrypt('encryptedfile');
-
-        $data = array(
-            'email' => auth()->user()->email,
-            'recipient' => $request->input('recipient'),
-            'subject' => $request->input('subject'),
-            'content' => $request->input('content'),
-            'encryptedfile' => $request-> encrypted,
-            );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
         Mail::send('mails.viewMail', $data ,function ($message) use ($data) 

@@ -53,24 +53,19 @@ class MailsController extends Controller
     
     public function postMail(Request $request)
     {
+        $data = array(
+        'email' => auth()->user()->email,
+        'recipient' => $request->input('recipient'),
+        'subject' => $request->input('subject'),
+        'content' => $request->input('content'),
+        );
+
         // Required validation
         $this->validate($request, [
             'recipient'=>'required',
             'subject'=>'required',
-            'content'=>'required',
+            'content'=>'required'
         ]);
-        
-        // Encrypted file
-        $data ['encryptedfile'] ->$request->file('uploaded_file');
-        $encrypted = Crypt::encrypt('encryptedfile');
-
-        $data = array(
-            'email' => auth()->user()->email,
-            'recipient' => $request->input('recipient'),
-            'subject' => $request->input('subject'),
-            'content' => $request->input('content'),
-            'encryptedfile' => $request-> encrypted,
-            );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
         Mail::send('mails.viewMail', $data ,function ($message) use ($data) 
@@ -125,7 +120,7 @@ class MailsController extends Controller
         );
 
         //https://accounts.google.com/DisplayUnlockCaptcha
-        Mail::send('mails.viewMail', $data ,function ($message) use ($data) 
+        Mail::send('vendor.emailTrakingViews.emails.mensaje_layout', $data ,function ($message) use ($data) 
         {
             $message->from($data['sender']);
             $message->to($data['recipient']);

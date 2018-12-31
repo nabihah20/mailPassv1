@@ -18,7 +18,8 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/inbox', 'DashboardController@inbox');
-Route::get('/settings', 'DashboardController@settings');
+Route::get('/settings', 'DashboardController@setup');
+Route::post('/settings', 'DashboardController@settings');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
@@ -34,8 +35,11 @@ Route::get('/file', 'FileController@index')->name('viewFile');
 Route::get('/upload', 'FileController@create')->name('formFile');
 Route::post('/upload', 'FileController@store')->name('uploadFile');
 Route::delete('/file/{id}', 'FileController@destroy')->name('deleteFile');
-Route::get('/file/download/{id}', 'FileController@show')->name('downloadFile');
+Route::get('/file/{id}', 'FileController@show')->name('showFile');
+Route::get('/file/download/{id}', 'FileController@download')->name('downloadFile');
 Route::get('/file/email/{id}', 'FileController@edit')->name('emailFile');
+Route::get('/file/encrypt/{id}', 'FileController@encrypt')->name('encryptFile');
+Route::get('/file/decrypt/{id}', 'FileController@decrypt')->name('decryptFile');
 
 //Route::get('/encrypt', 'PagesController@main');
 //Route::post('/upload', 'PagesController@upload');

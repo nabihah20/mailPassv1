@@ -30,6 +30,7 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
@@ -75,7 +76,9 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Util\\' => 22,
             'Symfony\\Polyfill\\Php72\\' => 23,
+            'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\' => 18,
@@ -103,7 +106,12 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
+            'PragmaRX\\Google2FA\\Tests\\' => 25,
+            'PragmaRX\\Google2FA\\' => 19,
+            'PragmaRX\\Google2FALaravel\\Tests\\' => 32,
+            'PragmaRX\\Google2FALaravel\\' => 26,
             'PhpParser\\' => 10,
+            'ParagonIE\\ConstantTime\\' => 23,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
         'O' => 
@@ -240,9 +248,17 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
+        'Symfony\\Polyfill\\Util\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-util',
+        ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
+        'Symfony\\Polyfill\\Php56\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php56',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -328,9 +344,29 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'PragmaRX\\Google2FA\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pragmarx/google2fa/tests',
+        ),
+        'PragmaRX\\Google2FA\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pragmarx/google2fa/src',
+        ),
+        'PragmaRX\\Google2FALaravel\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/tests',
+        ),
+        'PragmaRX\\Google2FALaravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'ParagonIE\\ConstantTime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
@@ -11936,6 +11972,17 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'ParagonIE\\ConstantTime\\Base32' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Base32.php',
+        'ParagonIE\\ConstantTime\\Base32Hex' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Base32Hex.php',
+        'ParagonIE\\ConstantTime\\Base64' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Base64.php',
+        'ParagonIE\\ConstantTime\\Base64DotSlash' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Base64DotSlash.php',
+        'ParagonIE\\ConstantTime\\Base64DotSlashOrdered' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Base64DotSlashOrdered.php',
+        'ParagonIE\\ConstantTime\\Base64UrlSafe' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Base64UrlSafe.php',
+        'ParagonIE\\ConstantTime\\Binary' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Binary.php',
+        'ParagonIE\\ConstantTime\\EncoderInterface' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/EncoderInterface.php',
+        'ParagonIE\\ConstantTime\\Encoding' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Encoding.php',
+        'ParagonIE\\ConstantTime\\Hex' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Hex.php',
+        'ParagonIE\\ConstantTime\\RFC4648' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/RFC4648.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
@@ -12219,6 +12266,42 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'PhpParser\\Parser\\Tokens' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Parser/Tokens.php',
         'PhpParser\\PrettyPrinterAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php',
         'PhpParser\\PrettyPrinter\\Standard' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinter/Standard.php',
+        'PragmaRX\\Google2FALaravel\\Events\\EmptyOneTimePasswordReceived' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/EmptyOneTimePasswordReceived.php',
+        'PragmaRX\\Google2FALaravel\\Events\\LoggedOut' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/LoggedOut.php',
+        'PragmaRX\\Google2FALaravel\\Events\\LoginFailed' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/LoginFailed.php',
+        'PragmaRX\\Google2FALaravel\\Events\\LoginSucceeded' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/LoginSucceeded.php',
+        'PragmaRX\\Google2FALaravel\\Events\\OneTimePasswordExpired' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/OneTimePasswordExpired.php',
+        'PragmaRX\\Google2FALaravel\\Events\\OneTimePasswordRequested' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/OneTimePasswordRequested.php',
+        'PragmaRX\\Google2FALaravel\\Events\\OneTimePasswordRequested53' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Events/OneTimePasswordRequested53.php',
+        'PragmaRX\\Google2FALaravel\\Exceptions\\InvalidOneTimePassword' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Exceptions/InvalidOneTimePassword.php',
+        'PragmaRX\\Google2FALaravel\\Exceptions\\InvalidSecretKey' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Exceptions/InvalidSecretKey.php',
+        'PragmaRX\\Google2FALaravel\\Facade' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Facade.php',
+        'PragmaRX\\Google2FALaravel\\Google2FA' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Google2FA.php',
+        'PragmaRX\\Google2FALaravel\\Middleware' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Middleware.php',
+        'PragmaRX\\Google2FALaravel\\ServiceProvider' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/ServiceProvider.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Auth' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Auth.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Authenticator' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Authenticator.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Config' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Config.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Constants' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Constants.php',
+        'PragmaRX\\Google2FALaravel\\Support\\ErrorBag' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/ErrorBag.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Input' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Input.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Request' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Request.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Response' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Response.php',
+        'PragmaRX\\Google2FALaravel\\Support\\Session' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/src/Support/Session.php',
+        'PragmaRX\\Google2FALaravel\\Tests\\Google2FaLaravelTest' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/tests/Google2FaLaravelTest.php',
+        'PragmaRX\\Google2FALaravel\\Tests\\Support\\User' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/tests/Support/User.php',
+        'PragmaRX\\Google2FALaravel\\Tests\\TestCase' => __DIR__ . '/..' . '/pragmarx/google2fa-laravel/tests/TestCase.php',
+        'PragmaRX\\Google2FA\\Exceptions\\IncompatibleWithGoogleAuthenticatorException' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Exceptions/IncompatibleWithGoogleAuthenticatorException.php',
+        'PragmaRX\\Google2FA\\Exceptions\\InsecureCallException' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Exceptions/InsecureCallException.php',
+        'PragmaRX\\Google2FA\\Exceptions\\InvalidCharactersException' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Exceptions/InvalidCharactersException.php',
+        'PragmaRX\\Google2FA\\Exceptions\\SecretKeyTooShortException' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Exceptions/SecretKeyTooShortException.php',
+        'PragmaRX\\Google2FA\\Google2FA' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Google2FA.php',
+        'PragmaRX\\Google2FA\\Support\\Base32' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/Base32.php',
+        'PragmaRX\\Google2FA\\Support\\Constants' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/Constants.php',
+        'PragmaRX\\Google2FA\\Support\\QRCode' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/QRCode.php',
+        'PragmaRX\\Google2FA\\Support\\Url' => __DIR__ . '/..' . '/pragmarx/google2fa/src/Support/Url.php',
+        'PragmaRX\\Google2FA\\Tests\\Constants' => __DIR__ . '/..' . '/pragmarx/google2fa/tests/Constants.php',
+        'PragmaRX\\Google2FA\\Tests\\Google2FATest' => __DIR__ . '/..' . '/pragmarx/google2fa/tests/Google2FATest.php',
         'Prophecy\\Argument' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument.php',
         'Prophecy\\Argument\\ArgumentsWildcard' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
         'Prophecy\\Argument\\Token\\AnyValueToken' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/Token/AnyValueToken.php',
@@ -13219,7 +13302,14 @@ class ComposerStaticInit9fc00f78b5ff66a40d4d3a264df97788
         'Symfony\\Contracts\\Translation\\TranslatorTrait' => __DIR__ . '/..' . '/symfony/contracts/Translation/TranslatorTrait.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
+        'Symfony\\Polyfill\\Php56\\Php56' => __DIR__ . '/..' . '/symfony/polyfill-php56/Php56.php',
         'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
+        'Symfony\\Polyfill\\Util\\Binary' => __DIR__ . '/..' . '/symfony/polyfill-util/Binary.php',
+        'Symfony\\Polyfill\\Util\\BinaryNoFuncOverload' => __DIR__ . '/..' . '/symfony/polyfill-util/BinaryNoFuncOverload.php',
+        'Symfony\\Polyfill\\Util\\BinaryOnFuncOverload' => __DIR__ . '/..' . '/symfony/polyfill-util/BinaryOnFuncOverload.php',
+        'Symfony\\Polyfill\\Util\\LegacyTestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/LegacyTestListener.php',
+        'Symfony\\Polyfill\\Util\\TestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListener.php',
+        'Symfony\\Polyfill\\Util\\TestListenerTrait' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListenerTrait.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

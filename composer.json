@@ -20,6 +20,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "phpmailer/phpmailer": "^6.0",
+        "pragmarx/google2fa-laravel": "^0.2.0",
         "swiftmailer/swiftmailer": "^6.0",
         "symfony/http-foundation": "^4.2",
         "twizo/lib-api-php": "^0.13.0",

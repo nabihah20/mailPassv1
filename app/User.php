@@ -28,12 +28,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function sent_emails(){
-        return $this ->hasMany('jdavidbakr\MailTracker\Model\SentEmail');
+    public function sentEmail(){
+        return $this ->hasMany('App\SentEmail');
     }
 
     public function passwordSecurity()
     {
         return $this->hasOne('App\PasswordSecurity');
+    }
+
+    public function file(){
+        return $this ->hasMany('App\File');
     }
 }

@@ -9,4 +9,9 @@ class File extends Model
     protected $fillable = [
         'title', 'description', 'path'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

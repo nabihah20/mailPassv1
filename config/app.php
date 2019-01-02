@@ -179,6 +179,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Dacastro4\LaravelGmail\LaravelGmailServiceProvider::class,
         jdavidbakr\MailTracker\MailTrackerServiceProvider::class,
+        PragmaRX\Google2FALaravel\ServiceProvider::class,
     ],
 
     /*
@@ -231,6 +232,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'LaravelGmail' => Dacastro4\LaravelGmail\Facade\LaravelGmail::class,
+        'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
     ],
 
 ];

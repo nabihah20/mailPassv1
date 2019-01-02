@@ -31,4 +31,9 @@ class User extends Authenticatable
     public function sent_emails(){
         return $this ->hasMany('jdavidbakr\MailTracker\Model\SentEmail');
     }
+
+    public function passwordSecurity()
+    {
+        return $this->hasOne('App\PasswordSecurity');
+    }
 }

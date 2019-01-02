@@ -41,6 +41,14 @@ Route::get('/file/email/{id}', 'FileController@edit')->name('emailFile');
 Route::get('/file/encrypt/{id}', 'FileController@encrypt')->name('encryptFile');
 Route::get('/file/decrypt/{id}', 'FileController@decrypt')->name('decryptFile');
 
+Route::get('/2fa','PasswordSecurityController@show2faForm');
+Route::post('/generate2faSecret','PasswordSecurityController@generate2faSecret')->name('generate2faSecret');
+Route::post('/2fa','PasswordSecurityController@enable2fa')->name('enable2fa');
+Route::post('/disable2fa','PasswordSecurityController@disable2fa')->name('disable2fa');
+
+Route::post('/2faVerify', function () {
+    return redirect(URL()->previous());
+    })->name('2faVerify')->middleware('2fa');
 //Route::get('/encrypt', 'PagesController@main');
 //Route::post('/upload', 'PagesController@upload');
 //Route::get('/download', 'PagesController@download');

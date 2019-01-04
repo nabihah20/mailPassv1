@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\File;
+use App\User;
 use Illuminate\Support\Facades\Storage;
 use Mail;
 
@@ -23,8 +24,10 @@ class FileController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
         $files = File::orderBy('created_at','DESC')->paginate(30);
-        return view('file.index', ['files'=>$files]);
+        return view('file.index')->with('files', $user->files);
     }
 
     /**
@@ -50,11 +53,13 @@ class FileController extends Controller
         //]);
 
         $files = $request->file('file');
+        
         foreach ($files as $file) {
             File::create([
                 'title' => $file->getClientOriginalName(),
                 'description' => '',
-                'path' => $file->store('public/storage')
+                'path' => $file->store('public/storage'),
+                'user_id' => $file->auth()->user()->id
             ]);
         }
 

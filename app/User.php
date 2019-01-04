@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     public function sentEmail(){
-        return $this ->hasMany('App\SentEmail');
+        return $this ->hasMany('jdavidbakr\MailTracker\Model\SentEmail');
     }
 
     public function passwordSecurity()

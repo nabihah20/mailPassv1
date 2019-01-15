@@ -26,6 +26,8 @@
         <div class="form-group">
             {{Form::label('','Max. 2MB')}}
             {{Form::file('uploaded_file',['span class'=>'btn btn-default btn-file'])}} 
+            {{Form::button('Encrypt',['class'=>'btn btn-warning'])}}
+            {{Form::label('','Click to encrypt file before send message')}}
         </div>
         {{Form::submit('Send Message',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

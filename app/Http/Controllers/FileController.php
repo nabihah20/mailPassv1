@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\File;
+use App\Mail\FileDownloaded;
 use App\User;
 use Illuminate\Support\Facades\Storage;
 use Mail;

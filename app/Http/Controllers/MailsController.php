@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use jdavidbakr\MailTracker\Model\SentEmail;
 use SentMail;
 use Mail;
+use App\Mail\FileDownloaded;
+use App\File;
 use Auth;
 use Illuminate\Support\Facades\Crypt;
 

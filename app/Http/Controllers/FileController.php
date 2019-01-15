@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\File;
-use App\Mail\FileDownloaded;
 use App\User;
-use Illuminate\Support\Facades\Storage;
 use Mail;
+use Illuminate\Support\Facades\Storage;
+use jdavidbakr\MailTracker\Model\SentMail;
 
 ini_set('max_execution_time', 300); 
 
@@ -60,7 +60,7 @@ class FileController extends Controller
                 'title' => $file->getClientOriginalName(),
                 'description' => '',
                 'path' => $file->store('public/storage'),
-                'user_id' => $file->auth()->user()->id
+                'user_id' => auth()->user()->id
             ]);
         }
 
@@ -139,7 +139,7 @@ class FileController extends Controller
         // Store file
         Storage::put("app/".$fl->path, $encryptedContent);
 
-        $data = array('title' =>$fl->title, $encryptedContent, $fl->$id);
+        $data = array('title' =>$fl->title, $encryptedContent, 'id' =>$fl->id);
         Mail::send('mails.attachment', $data, function($message) use($fl) {
             $message->to('bihatq@gmail.com', 'Biha')->subject('Laravel file');
             $message->attach(storage_path("app/app/".$fl->path));

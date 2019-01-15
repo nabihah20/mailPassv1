@@ -3,6 +3,7 @@
 namespace jdavidbakr\MailTracker\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 /**
  * @property string $hash
@@ -32,6 +33,11 @@ class SentEmail extends Model
         'meta',
         'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     protected $casts = [
         'meta'=>'collection',
@@ -121,7 +127,4 @@ class SentEmail extends Model
         return $this->hasMany(SentEmailUrlClicked::class);
     }
 
-    public function user(){
-        return $this ->belongsTo('App\User');
-    }
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use jdavidbakr\MailTracker\Model\SentEmail;
 
 class Mails extends Model
 {

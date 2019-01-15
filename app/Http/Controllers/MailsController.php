@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use jdavidbakr\MailTracker\Model\SentEmail;
-use SentMail;
 use Mail;
 use App\Mail\FileDownloaded;
 use App\File;
@@ -60,6 +59,7 @@ class MailsController extends Controller
         'recipient' => $request->input('recipient'),
         'subject' => $request->input('subject'),
         'content' => $request->input('content'),
+        'uploaded_file' => $request->file('uploaded_file'),
         );
 
         // Required validation
@@ -86,16 +86,21 @@ class MailsController extends Controller
                 'as' => $data['uploaded_file']->getClientOriginalName(),
                 'mime' =>$data['uploaded_file']->getClientMimeType(),
             ]);
+
+
         });
 
-        //Store Mail
-        //$mails = new Mails;
+        //Store file
+        $files = new File;
         //$mails->email = auth()->user()->email;
         //$mails->recipientEmail = $request ->input('recipientEmail');
         //$mails->subject = $request ->input('subject');
         //$mails->bodyMessage = $request->input('bodyMessage');
-        //$sent_emails->user_id = auth()->user()->id;
-        //$mails->save();
+        $files->title = $data['uploaded_file']->getClientOriginalName();
+        $files->description = '';
+        $files->path =  $data['uploaded_file']->store('public/storage');
+        $files->user_id = auth()->user()->id;
+        $files->save();
 
         return redirect('composemail')->with('success', 'Mails Sent');
     }

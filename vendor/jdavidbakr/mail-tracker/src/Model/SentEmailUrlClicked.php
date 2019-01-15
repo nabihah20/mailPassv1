@@ -3,6 +3,7 @@
 namespace jdavidbakr\MailTracker\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 // use Model\SentEmail;
 
@@ -26,5 +27,9 @@ class SentEmailUrlClicked extends Model
     public function email()
     {
         return $this->belongsTo(SentEmail::class, 'sent_email_id');
+    }
+
+    public function user(){
+        return $this ->belongsTo('App\User');
     }
 }

@@ -1,4 +1,4 @@
 <h1>Your File {{$title}}</h1>
 
-<a href="http://mailpass.com/file/decrypt/11">Please click here to decrypt the encrypted file</a>
+<a href="/file/decrypt/{{$id}}">Please click here to decrypt the encrypted file</a>
 </div>

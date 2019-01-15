@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use jdavidbakr\MailTracker\Model\SentEmail;
 
 class User extends Authenticatable
 {
@@ -28,7 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function sentEmail(){
+    public function sent_emails(){
         return $this ->hasMany('jdavidbakr\MailTracker\Model\SentEmail');
     }
 
@@ -37,7 +38,12 @@ class User extends Authenticatable
         return $this->hasOne('App\PasswordSecurity');
     }
 
-    public function file(){
+    public function files(){
         return $this ->hasMany('App\File');
     }
+
+    public function sentEmailUrlClicked(){
+        return $this ->hasMany('jdavidbakr\MailTracker\Model\SentEmailUrlClicked');
+    }
+
 }

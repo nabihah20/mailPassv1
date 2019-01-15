@@ -31,12 +31,12 @@ class DashboardController extends Controller
         return view('dashboard')->with('sent_emails', $user ->sent_emails)->with('status', 'You are logged in!');
     }
 
-    public function inbox()
-    {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('inbox')->with('sent_emails', $user ->sent_emails)->with('status', 'You are logged in!');
-    }
+    //public function inbox()
+    //{
+        //$user_id = auth()->user()->id;
+        //$user = User::find($user_id);
+        //return view('inbox')->with('sent_emails', $user ->sent_emails)->with('status', 'You are logged in!');
+    //}
 
     public function setup()
     {

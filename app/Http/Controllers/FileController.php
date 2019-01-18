@@ -229,10 +229,10 @@ class FileController extends Controller
             $message->to($data['recipient']);
             $message->subject($data['subject']);
             //Attach file
-            $message->attach(storage_path("app/app/".($data['path'])));
+            $message->attach(storage_path("app/app/".$data['path']));
         });
 
-        return redirect('/file')->with('success','Encrypted File Attachment Sent');
+        return redirect('/dashboard')->with('success','Encrypted File Attachment Sent');
     }
 
 

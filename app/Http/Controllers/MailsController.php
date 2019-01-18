@@ -45,6 +45,10 @@ class MailsController extends Controller
         return view('mails.create');
     }
 
+    public function type()
+    {
+        return view('mails.type');
+    }
     /**
      * Store a newly created resource in storage.
      *

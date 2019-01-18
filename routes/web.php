@@ -25,6 +25,7 @@ Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::resource('/mails','MailsController');
+Route::get('/typemail', 'MailsController@type');
 Route::get('/composemail', 'MailsController@create');
 Route::post('/composemail', 'MailsController@postMail');
 

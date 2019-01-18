@@ -88,10 +88,10 @@ class FileController extends Controller
     public function edit($id)
     {
         $fl = File::find($id);
-        $data = array('title' =>$fl->title, 'path'=>$fl->path);
-        Mail::send('mails.attachment', $data, function($message) use($fl) {
+        $data = array('title' =>$fl->title, 'path'=>$fl->path, 'id' =>$fl->id);
+        Mail::send('mails.attachnoencrypt', $data, function($message) use($fl) {
             $message->to('bihatq@gmail.com', 'Biha')->subject('Laravel file');
-            $message->attach(storage_path("app/app".$fl->path));
+            $message->attach(storage_path("app/".$fl->path));
             $message->from('nabihah.student@gmail.com', 'Nabihah');
         });
         return redirect('/file')->with('success','File Attachment has been sent to your email');

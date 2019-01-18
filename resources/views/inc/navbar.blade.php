@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/file">Manage File</a>
                 </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/composemail">Compose Mail</a>
+                        <a class="nav-link" href="/typemail">Compose Mail</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

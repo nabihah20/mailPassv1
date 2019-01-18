@@ -38,7 +38,9 @@ Route::delete('/file/{id}', 'FileController@destroy')->name('deleteFile');
 Route::get('/file/{id}', 'FileController@show')->name('showFile');
 Route::get('/file/download/{id}', 'FileController@download')->name('downloadFile');
 Route::get('/file/email/{id}', 'FileController@edit')->name('emailFile');
+Route::get('/createMail', 'FileController@createMail')->name('createMail');;
 Route::get('/file/encrypt/{id}', 'FileController@encrypt')->name('encryptFile');
+Route::post('/createMail', 'FileController@sentMail')->name('sentMail');
 Route::get('/file/decrypt/{id}', 'FileController@decrypt')->name('decryptFile');
 
 Route::get('/2fa','PasswordSecurityController@show2faForm');

@@ -9,7 +9,7 @@
 
     <div class="jumbotron text-center">
         <h2> Send email with Attachment </h2>
-        <a class="btn btn-primary btn-lg" href="/about" role="button"><span class="glyphicon glyphicon-plus"></span>  Attachment with Encryption <span class="glyphicon glyphicon-paperclip"></a>
+        <a class="btn btn-primary btn-lg" href="/encryptfile" role="button"><span class="glyphicon glyphicon-plus"></span>  Attachment with Encryption <span class="glyphicon glyphicon-link"></a>
         <a class="btn btn-primary btn-lg" href="/composemail" role="button"><span class="glyphicon glyphicon-plus"></span>  Attachment without Encryption <span class="glyphicon glyphicon-paperclip"></a>
 
     </div>

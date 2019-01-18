@@ -7,8 +7,10 @@
 @section('content')
 <div class="jumbotron">
     <h2>Dashboard</h2>
-    <a class="btn btn-info btn-lg" href="/composemessage" role="button"><span class="glyphicon glyphicon-plus"></span>  Compose without  <span class="glyphicon glyphicon-paperclip"></a>
-    
+
+    <a class="btn btn-info btn-lg" href="/typemail" role="button"><span class="glyphicon glyphicon-plus"></span> Compose Mail</a>
+    <br/><br/>
+    <h3>Sent Emails</h3>
     <br/><br/>
             @if (count($sent_emails) > 0)
             <table class="table table-striped">

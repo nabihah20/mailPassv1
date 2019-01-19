@@ -209,6 +209,9 @@ class FileController extends Controller
         $recipient = $request->input('recipient');
         $subject = $request->input('subject');
         $content = $request->input('content');
+        $title = $request->input( 'title' );
+        $id = $request->input( 'id' );
+        $path = $request->input( 'path' );
         
         //send data
         $data = array(
@@ -222,6 +225,7 @@ class FileController extends Controller
             'path' => $path
             );
         
+        //return view('mails.attachment') -> with($data);
         //Send email    
         Mail::send('mails.attachment', $data, function($message) use($data)  
         {

@@ -2,7 +2,7 @@
 <br/>
 <a href="/file/decrypt/{{$id}}">Please click here to decrypt the encrypted file</a>
 <br/>
-<p>This message sent by {{$recipient}} with subject: {{$subject}}</p>
+<p>This message sent by {{$email}} with subject: {{$subject}}</p>
 <br/>
 <hr>
 <p>Details of file</p>

@@ -1,9 +1,10 @@
-<h1>Your File {{$title}}</h1>
-<p> {{$content}} </p>
+<h2> {!! $content !!} </h2>
+<br/>
 <a href="/file/decrypt/{{$id}}">Please click here to decrypt the encrypted file</a>
-<p> {{$path}} </p>
-<p> {{$recipient}} </p>
-<p> {{$subject}} </p>
-<p> {{$content}} </p>
-<p> {{$title}} </p>
-<p> {{$id}} </p>
+<br/>
+<p>This message sent by {{$recipient}} with subject: {{$subject}}</p>
+<br/>
+<hr>
+<p>Details of file</p>
+<p>Name: {{$title}}</p>
+<p>ID: {{$id}}</p>

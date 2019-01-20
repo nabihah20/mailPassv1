@@ -37,7 +37,7 @@ Route::get('/upload', 'FileController@create')->name('formFile');
 Route::post('/upload', 'FileController@store')->name('uploadFile');
 Route::get('/encryptfile', 'FileController@encryptfile');
 Route::get('/uploadtofile', 'FileController@createtofile');
-Route::post('/upload', 'FileController@storetofile');
+Route::post('/uploadtofile', 'FileController@storetofile');
 Route::delete('/file/{id}', 'FileController@destroy')->name('deleteFile');
 Route::get('/file/{id}', 'FileController@show')->name('showFile');
 Route::get('/file/download/{id}', 'FileController@download')->name('downloadFile');
